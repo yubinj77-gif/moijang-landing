@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>무아장브로우 | 눈썹·입술 반영구 예약</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Song+Myung&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+<style>
+/* =========================================================
+   0. EDITABLE GUIDE (검색해서 바로 수정하세요)
+   - 샵 이름 : "무아장브로우" 검색
+   - 가격/시술설명 : .menu-card 안의 텍스트
+   - 사진 : /images/profile.jpg, /images/case1~6.jpg 로 교체
+   - 메뉴 사진 : /images/menu_brow1~3.jpg, /images/menu_lip1~3.jpg 로 교체
+   - 연락처/주소/인스타 : footer 영역
+========================================================= */
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+
+:root{
+  --ink:#2B2220;
+  --ink-soft:#5B4C44;
+  --paper:#FBF6F1;
+  --paper-deep:#EFE4D9;
+  --card:#FFFCF9;
+  --brow:#A8693A;
+  --brow-deep:#8C5429;
+  --lip:#8B3A42;
+  --lip-deep:#6F2C33;
+  --blush:#F1DCD2;
+  --line:#DCCDBF;
+  --taupe:#8C7E74;
+  --shadow: 0 18px 40px -20px rgba(43,34,32,.35);
+}
+
+body{
+  font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background:var(--paper-deep);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{ font-family:'Song Myung','Pretendard',serif; font-weight:400; letter-spacing:-0.01em; }
+
+img{ max-width:100%; display:block; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+input,textarea{ font-family:inherit; font-size:15px; }
+
+:focus-visible{ outline:2px solid var(--brow-deep); outline-offset:3px; }
+
+/* ===== Mobile frame (desktop에서도 모바일 비율 유지) ===== */
+.frame{
+  max-width:480px;
+  margin:0 auto;
+  background:var(--paper);
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  min-height:100vh;
+}
+@media (min-width:540px){
+  body{ padding:32px 0; }
+  .frame{ border-radius:28px; }
+}
+
+/* ===== 공통 섹션 레이아웃 ===== */
+section{ padding:64px 26px; position:relative; }
+.eyebrow-tag{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size:13px;
+  letter-spacing:.16em;
+  color:var(--brow-deep);
+  display:inline-block;
+  margin-bottom:14px;
+}
+h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
+.section-sub{ font-size:14.5px; color:var(--ink-soft); margin-bottom:8px; }
+
+/* ===== 라인 모티프 (시그니처 요소) ===== */
+.motif{ width:100%; display:block; margin:0 auto; }
+.divider{ padding:0 26px; }
+.divider svg path{ fill:none; stroke-width:1.6; stroke-linecap:round; }
+
+/* ===== Reveal animation ===== */
+.reveal{ opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+
+/* =========================================================
+   1. HERO
+========================================================= */
+.hero{
+  min-height:100svh;
+  min-height:100vh;
+  padding:0;
+  display:flex;
+  align-items:flex-end;
+  position:relative;
+  background:
+    radial-gradient(120% 90% at 20% 0%, rgba(168,105,58,.55), transparent 60%),
+    linear-gradient(180deg, var(--ink) 0%, #3A2C26 55%, var(--brow-deep) 100%);
+  overflow:hidden;
+}
+.hero-bg-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.hero.no-image .hero-bg-img{ display:none; }
+.hero-ph-caption{
+  display:none;
+  position:absolute; inset:0;
+  align-items:center; justify-content:center; text-align:center;
+  flex-direction:column; gap:8px; padding:40px;
+}
+.hero.no-image .hero-ph-caption{ display:flex; }
+.hero-ph-caption svg{ width:34px; height:34px; opacity:.7; }
+.hero-ph-caption span{ color:rgba(251,246,241,.75); font-size:12.5px; letter-spacing:.04em; }
+
+.hero-overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(43,34,32,0) 25%, rgba(43,34,32,.55) 70%, rgba(28,21,19,.88) 100%);
+}
+.hero-content{ position:relative; z-index:2; padding:0 28px 56px; color:var(--paper); width:100%; }
+.hero-wordmark{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-size:13px;
+  letter-spacing:.18em; color:rgba(251,246,241,.8); margin-bottom:26px; display:block;
+}
+.hero-title{
+  font-size:30px; line-height:1.42; color:#fff; margin-bottom:14px;
+  text-shadow:0 4px 18px rgba(0,0,0,.25);
+}
+.hero-sub{ font-size:14.5px; color:rgba(251,246,241,.82); max-width:300px; }
+.scroll-cue{
+  margin-top:34px; display:flex; align-items:center; gap:8px;
+  font-size:12px; letter-spacing:.06em; color:rgba(251,246,241,.7);
+}
+.scroll-cue svg{ width:14px; height:14px; animation:bob 1.8s ease-in-out infinite; }
+@keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(4px);} }
+@media (prefers-reduced-motion: reduce){ .scroll-cue svg{ animation:none; } }
+
+/* =========================================================
+   2. PROBLEM
+========================================================= */
+.problem{ background:var(--paper); }
+.x-list{ display:flex; flex-direction:column; gap:14px; margin-top:26px; }
+.x-item{
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 18px;
+}
+.x-icon{
+  flex:0 0 30px; width:30px; height:30px; border-radius:50%;
+  background:var(--blush); display:flex; align-items:center; justify-content:center;
+}
+.x-icon svg{ width:13px; height:13px; stroke:var(--lip-deep); stroke-width:2; }
+.x-text strong{ display:block; font-size:15.5px; margin-bottom:3px; }
+.x-text span{ font-size:13px; color:var(--taupe); }
+
+/* =========================================================
+   3. SOLUTION
+========================================================= */
+.solution{ background:var(--blush); }
+.check-list{ display:flex; flex-direction:column; gap:14px; margin-top:26px; }
+.check-item{
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--card); border-radius:16px; padding:18px;
+  box-shadow:0 10px 24px -16px rgba(43,34,32,.25);
+}
+.check-icon{
+  flex:0 0 30px; width:30px; height:30px; border-radius:50%;
+  background:var(--brow-deep); display:flex; align-items:center; justify-content:center;
+}
+.check-icon svg{ width:14px; height:14px; stroke:#fff; stroke-width:2.2; }
+.check-text strong{ display:block; font-size:15.5px; margin-bottom:3px; }
+.check-text span{ font-size:13px; color:var(--ink-soft); }
+
+/* =========================================================
+   4. MENU / 가격·기법 비교 + 예약
+========================================================= */
+.menu-sec{ background:var(--paper); }
+.tabs{ display:flex; gap:8px; margin:26px 0 22px; background:var(--paper-deep); border-radius:30px; padding:5px; }
+.tab-btn{
+  flex:1; padding:11px 0; border-radius:24px; font-size:14px; font-weight:600;
+  color:var(--ink-soft); transition:background .25s, color .25s;
+}
+.tab-btn[aria-selected="true"]{ background:var(--ink); color:#fff; }
+.tab-panel{ display:flex; flex-direction:column; gap:14px; }
+.tab-panel[hidden]{ display:none; }
+
+.menu-card{
+  background:var(--card); border:1px solid var(--line); border-radius:18px;
+  padding:22px 20px; position:relative; overflow:hidden;
+}
+.menu-card::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+}
+.menu-card[data-accent="brow"]::before{ background:var(--brow); }
+.menu-card[data-accent="lip"]::before{ background:var(--lip); }
+.menu-card-head{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px; }
+.menu-card-head h3{ font-size:17px; line-height:1.35; }
+.menu-card-head h3 small{ display:block; font-family:'Pretendard'; font-size:12px; color:var(--taupe); font-weight:400; margin-top:2px; }
+
+/* 가격 크기 확대 및 강조 */
+.price{ flex:0 0 auto; font-size:20px; font-weight:800; white-space:nowrap; padding-top:2px; }
+.menu-card[data-accent="brow"] .price{ color:var(--brow-deep); }
+.menu-card[data-accent="lip"] .price{ color:var(--lip-deep); }
+
+/* 대표사진 스타일 추가 */
+.menu-card-img{ width:100%; height:160px; object-fit:cover; border-radius:12px; margin-bottom:12px; background:var(--paper-deep); }
+
+.card-desc{ font-size:13.5px; color:var(--ink-soft); }
+
+/* =========================================================
+   5. CASES
+========================================================= */
+.cases{ background:var(--paper-deep); }
+.case-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:26px; }
+.case-item{ border-radius:14px; overflow:hidden; background:var(--blush); position:relative; aspect-ratio:4/5; }
+.case-item img{ width:100%; height:100%; object-fit:cover; }
+.case-item.no-image img{ display:none; }
+.case-ph{
+  display:none; position:absolute; inset:0; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:10px; text-align:center;
+}
+.case-item.no-image .case-ph{ display:flex; }
+.case-ph svg{ width:22px; height:22px; opacity:.55; }
+.case-ph span{ font-size:10.5px; color:var(--ink-soft); opacity:.8; }
+.case-cap{
+  position:absolute; left:0; right:0; bottom:0; padding:8px 10px 9px;
+  background:linear-gradient(180deg, transparent, rgba(43,34,32,.72));
+  color:#fff; font-size:11px; line-height:1.3;
+}
+.case-cap b{ display:block; font-size:11.5px; }
+
+/* =========================================================
+   6. FEATURES + SLOGAN
+========================================================= */
+.features{ background:var(--ink); color:var(--paper); text-align:center; }
+.slogan{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600;
+  font-size:34px; line-height:1.15; color:#fff; margin-bottom:14px;
+}
+.slogan-underline{ width:150px; margin:0 auto 18px; }
+.slogan-underline path{ stroke:var(--blush); }
+.features-sub{ font-size:13.5px; color:rgba(251,246,241,.65); margin-bottom:34px; }
+
+.feature-list{ display:flex; flex-direction:column; gap:18px; text-align:left; }
+.feature-item{
+  background:rgba(251,246,241,.06); border:1px solid rgba(251,246,241,.14);
+  border-radius:16px; padding:20px;
+}
+.feature-tag{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-size:12px;
+  letter-spacing:.14em; color:var(--blush); display:block; margin-bottom:8px;
+}
+.feature-item h3{ font-size:16.5px; color:#fff; margin-bottom:6px; }
+.feature-item p{ font-size:13px; color:rgba(251,246,241,.7); }
+
+/* =========================================================
+   7. FINAL CTA
+========================================================= */
+.cta-final{ background:var(--paper); text-align:center; padding-bottom:48px; }
+.cta-final h2{ font-size:26px; margin-bottom:10px; }
+.cta-final .section-sub{ margin-bottom:30px; }
+.cta-btns{ display:flex; flex-direction:column; gap:12px; }
+.btn-primary, .btn-secondary{
+  display:block; text-decoration:none;
+  width:100%; padding:16px 0; border-radius:30px; font-size:15.5px; font-weight:700; text-align:center;
+}
+.btn-primary{ background:linear-gradient(120deg, var(--brow-deep), var(--lip-deep)); color:#fff; box-shadow:0 14px 28px -14px rgba(111,44,51,.55); }
+.btn-secondary{ background:transparent; border:1.4px solid var(--ink); color:var(--ink); }
+
+.footer{ background:var(--paper); padding:0 26px 100px; text-align:center; }
+.footer-info{ font-size:12.5px; color:var(--taupe); line-height:1.8; border-top:1px solid var(--line); padding-top:24px; }
+.footer-info b{ color:var(--ink-soft); }
+
+/* =========================================================
+   STICKY BOTTOM CTA
+========================================================= */
+.sticky-cta{
+  position:fixed; left:50%; transform:translate(-50%, 110%); bottom:0;
+  width:100%; max-width:480px; z-index:40;
+  background:rgba(251,246,241,.96); backdrop-filter:blur(6px);
+  border-top:1px solid var(--line);
+  padding:12px 20px calc(12px + env(safe-area-inset-bottom));
+  display:flex; gap:10px;
+  transition:transform .35s ease;
+}
+.sticky-cta.visible{ transform:translate(-50%, 0); }
+.sticky-cta.hide{ transform:translate(-50%, 110%); }
+.sticky-cta a, .sticky-cta button{ flex:1; padding:13px 0; border-radius:26px; font-size:14px; font-weight:700; text-align:center; text-decoration:none; }
+.sticky-cta .s-primary{ background:linear-gradient(120deg, var(--brow-deep), var(--lip-deep)); color:#fff; }
+.sticky-cta .s-secondary{ border:1.4px solid var(--ink); color:var(--ink); }
+
+/* =========================================================
+   MODAL
+========================================================= */
+.overlay{
+  position:fixed; inset:0; background:rgba(28,21,19,.55); z-index:80;
+  display:flex; align-items:flex-end; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .25s ease;
+}
+.overlay.open{ opacity:1; pointer-events:auto; }
+.modal{
+  width:100%; max-width:480px; background:var(--paper); border-radius:24px 24px 0 0;
+  padding:28px 26px calc(26px + env(safe-area-inset-bottom));
+  transform:translateY(100%); transition:transform .3s ease;
+  max-height:88vh; overflow-y:auto;
+}
+.overlay.open .modal{ transform:translateY(0); }
+.modal-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
+.modal h3{ font-size:20px; }
+.modal-close{ width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--taupe); font-size:20px; }
+.modal-sub{ font-size:13.5px; color:var(--ink-soft); margin-bottom:20px; }
+.modal-sub b{ color:var(--ink); }
+.form-row{ margin-bottom:14px; }
+.form-row label{ display:block; font-size:12.5px; color:var(--ink-soft); margin-bottom:6px; }
+.form-row input, .form-row textarea{
+  width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:12px; background:#fff; color:var(--ink);
+}
+.form-row textarea{ resize:none; height:74px; }
+.modal .btn-primary{ margin-top:6px; }
+.success-msg{ text-align:center; padding:30px 0 10px; }
+.success-msg svg{ width:40px; height:40px; stroke:var(--brow-deep); margin-bottom:14px; }
+.success-msg p{ font-size:15px; }
+.success-msg span{ font-size:13px; color:var(--taupe); }
+
+[hidden]{ display:none !important; }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <section class="hero" id="hero">
+    <img class="hero-bg-img" src="images/profile.jpg" alt="원장 프로필 사진"
+         onerror="this.closest('.hero').classList.add('no-image')">
+    <div class="hero-ph-caption">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+      <span>images/profile.jpg 자리 — 원장님 프로필 사진으로 교체해주세요</span>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-wordmark">무아장브로우</span>
+      <h1 class="hero-title">어떤 눈썹이 나에게<br>맞는지 모르시겠다구요?</h1>
+      <p class="hero-sub">후기는 많은데, 정작 ‘내 얼굴’에 맞는 눈썹을 찾기는 어렵죠.</p>
+      <div class="scroll-cue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4v15M6 14l6 6 6-6"/></svg>
+        SCROLL
+      </div>
+    </div>
+  </section>
+
+  <section class="problem" id="problem">
+    <span class="eyebrow-tag reveal">CHECK</span>
+    <h2 class="section-title reveal">혹시 아직도 이렇게<br>반영구샵을 고르시진 않나요?</h2>
+    <div class="x-list">
+      <div class="x-item reveal">
+        <span class="x-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+        <div class="x-text"><strong>주변 사람들이 잘한다고 해서</strong><span>내 얼굴형과 눈썹 결은 다른 사람과 다를 수 있어요</span></div>
+      </div>
+      <div class="x-item reveal">
+        <span class="x-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+        <div class="x-text"><strong>가격이 저렴해서</strong><span>가격만 보고 고르면 디자인은 운에 맡기게 돼요</span></div>
+      </div>
+      <div class="x-item reveal">
+        <span class="x-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+        <div class="x-text"><strong>집 근처와 가까워서</strong><span>거리보다 중요한 건 ‘나에게 맞는 디자인’이에요</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="solution" id="solution">
+    <span class="eyebrow-tag reveal">INSTEAD</span>
+    <h2 class="section-title reveal">앞으로는<br>이렇게 골라보세요</h2>
+    <div class="check-list">
+      <div class="check-item reveal">
+        <span class="check-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></span>
+        <div class="check-text"><strong>나와 닮은 사례가 있는 곳</strong><span>실제 시술 후기에서 내 눈썹과 비슷한 케이스를 찾아보세요</span></div>
+      </div>
+      <div class="check-item reveal">
+        <span class="check-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></span>
+        <div class="check-text"><strong>1:1 디자인 상담이 가능한 곳</strong><span>내 눈썹 결과 얼굴 비율에 맞춘 맞춤 디자인을 받을 수 있어요</span></div>
+      </div>
+      <div class="check-item reveal">
+        <span class="check-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></span>
+        <div class="check-text"><strong>자연스럽고 깔끔하게 남는 곳</strong><span>시술 후에도 원래 내 것이었던 것처럼 자연스러운 결과를 만들어요</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-sec" id="menu">
+    <span class="eyebrow-tag reveal">MENU</span>
+    <h2 class="section-title reveal">나에게 맞는 디자인을<br>선택해보세요</h2>
+    <p class="section-sub reveal">가격과 기법을 비교하고 마음에 드는 디자인을 골라보세요</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn" data-tab="brow" role="tab" aria-selected="true">눈썹 반영구</button>
+      <button class="tab-btn" data-tab="lip" role="tab" aria-selected="false">입술 반영구</button>
+    </div>
+
+    <div class="tab-panel" id="panel-brow" role="tabpanel">
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>자연눈썹<small>결눈썹</small></h3>
+          <span class="price">170,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_brow1.jpg" alt="자연눈썹 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">한 올 한 올 결을 표현해 본래 눈썹처럼 자연스러움을 살립니다. 전체적으로 모량이 골고루 나셨거나, 첫 반영구이신분께 추천드려요.</p>
+      </article>
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>콤보 눈썹<small>결표현 + 섀도우</small></h3>
+          <span class="price">200,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_brow2.jpg" alt="콤보 눈썹 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">결 표현과 음영을 함께 더해 자연스러우면서 또렷한 인상을 줍니다. 눈썹꼬리쪽의 모량이 부족하신 분께 추천드려요.</p>
+      </article>
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>섀도우 눈썹<small>수지 기법</small></h3>
+          <span class="price">220,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_brow3.jpg" alt="섀도우 눈썹 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">작은 점을 찍어 면을 만들어 음영을 쌓아 메이크업한 듯한 자연스러운 그라데이션을 표현합니다. 진하고 또렷한 눈썹을 원하는 분께 추천드려요.</p>
+      </article>
+    </div>
+
+    <div class="tab-panel" id="panel-lip" hidden role="tabpanel">
+      <article class="menu-card" data-accent="lip">
+        <div class="menu-card-head">
+          <h3>그라데이션 입술<small>음영 기법</small></h3>
+          <span class="price">220,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lip1.jpg" alt="그라데이션 입술 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">입술 중앙은 진하게, 바깥은 연하게 음영을 주어 자연스러운 색감을 표현합니다. 은은한 톤업 효과를 원하는 분께 추천드려요.</p>
+      </article>
+      <article class="menu-card" data-accent="lip">
+        <div class="menu-card-head">
+          <h3>풀착색 입술<small>전체 착색 기법</small></h3>
+          <span class="price">220,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lip2.jpg" alt="풀착색 입술 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">입술 전체에 고르게 컬러를 입혀 선명하고 또렷한 입술 색을 표현합니다. 화사하고 분명한 컬러를 원하는 분께 추천드려요.</p>
+      </article>
+      <article class="menu-card" data-accent="lip">
+        <div class="menu-card-head">
+          <h3>오버립 입술<small>립라인 교정</small></h3>
+          <span class="price">220,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lip3.jpg" alt="오버립 입술 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">립라인이 어둡거나, 흐릿한 분들께 본래 컬러처럼 자연스럽게 오버립하길 원하는 분께 추천드려요..</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="cases" id="cases">
+    <span class="eyebrow-tag reveal">REAL CASE</span>
+    <h2 class="section-title reveal">모든 사람들의<br>눈썹은 다릅니다</h2>
+    <p class="section-sub reveal">얼굴형, 눈매, 눈썹 결에 따라 다른 디자인이 필요해요</p>
+
+    <div class="case-grid">
+      <div class="case-item">
+        <img src="images/case1.jpg" alt="둥근형 자연눈썹 시술 사례" onerror="this.closest('.case-item').classList.add('no-image')">
+        <div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case1.jpg</span></div>
+        <div class="case-cap"><b>둥근형</b>자연눈썹</div>
+      </div>
+      <div class="case-item">
+        <img src="images/case2.jpg" alt="일자아치형 섀도우눈썹 시술 사례" onerror="this.closest('.case-item').classList.add('no-image')">
+        <div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case2.jpg</span></div>
+        <div class="case-cap"><b>일자아치형</b>섀도우 눈썹</div>
+      </div>
+      <div class="case-item">
+        <img src="images/case3.jpg" alt="맨즈 아치형 콤보눈썹 시술 사례" onerror="this.closest('.case-item').classList.add('no-image')">
+        <div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case3.jpg</span></div>
+        <div class="case-cap"><b>맨즈아치형</b>콤보 눈썹</div>
+      </div>
+      <div class="case-item">
+        <img src="images/case4.jpg" alt="그라데이션 오버립 시술 사례" onerror="this.closest('.case-item').classList.add('no-image')">
+        <div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case4.jpg</span></div>
+        <div class="case-cap"><b>어두운 립라인 보정</b>그라데이션 오버립</div>
+      </div>
+      <div class="case-item">
+        <img src="images/case5.jpg" alt="맨즈 일자형 자연눈썹 시술 사례" onerror="this.closest('.case-item').classList.add('no-image')">
+        <div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case5.jpg</span></div>
+        <div class="case-cap"><b>맨즈 일자형 </b>자연 눈썹</div>
+      </div>
+      <div class="case-item">
+        <img src="images/case6.jpg" alt="얇은 일자형 자연눈썹 시술 사례" onerror="this.closest('.case-item').classList.add('no-image')">
+        <div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case6.jpg</span></div>
+        <div class="case-cap"><b>얇은 일자형</b>자연 눈썹</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <p class="slogan reveal">FIND YOUR<br>OWN BEAUTY</p>
+    <svg class="slogan-underline motif reveal" viewBox="0 0 150 10" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 6 Q 38 -2, 75 6 T 148 6" fill="none" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <p class="features-sub reveal">우리가 가장 중요하게 생각하는 세 가지</p>
+
+    <div class="feature-list">
+      <div class="feature-item reveal">
+        <span class="feature-tag">DESIGN</span>
+        <h3>1:1 맞춤 디자인</h3>
+        <p>내 얼굴형과 눈썹 결, 피부 톤을 분석해 가장 잘 어울리는 디자인을 설계합니다.</p>
+      </div>
+      <div class="feature-item reveal">
+        <span class="feature-tag">AFTERCARE</span>
+        <h3>꼼꼼한 시술 후 안내</h3>
+        <p>회복 기간 동안 필요한 케어 방법을 자세하고 친절하게 안내해 드립니다.</p>
+      </div>
+      <div class="feature-item reveal">
+        <span class="feature-tag">CONSULT</span>
+        <h3>시술 전 사전 상담</h3>
+        <p>충분한 상담을 통해 고객님의 니즈와 원하시는 디자인을 정확히 파악합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final" id="cta-final">
+    <h2 class="reveal">본연의 미를<br>찾아드립니다.</h2>
+    <p class="section-sub reveal">지금 바로 상담받고 나에게 맞는 디자인을 찾아보세요</p>
+    <div class="cta-btns reveal">
+      <a href="https://m.booking.naver.com/booking/13/bizes/1039391/items/7772940?area=pll&lang=ko&startDate=2026-06-17&theme=place" target="_blank" class="btn-primary">지금 예약하기</a>
+      <a href="http://pf.kakao.com/_JkUjG" target="_blank" class="btn-secondary">상담 신청하기</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-info">
+      <p><b>무아장브로우</b></p>
+      <p>서울특별시 [용산구 한강대로 72길 11-12] [무아장브로우] [1층]</p>
+      <p>영업시간 평일 10:30 – 20:00 주말 11:00 - 17:00 (매주 월요일, 일요일 휴무)</p>
+      <p>전화 010-9719-0995 · 인스타그램 @moijang_brow</p>
+    </div>
+  </footer>
+</div>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://m.booking.naver.com/booking/13/bizes/1039391/items/7772940?area=pll&lang=ko&startDate=2026-06-17&theme=place" target="_blank" class="s-primary">지금 예약하기</a>
+  <a href="http://pf.kakao.com/_JkUjG" target="_blank" class="s-secondary">상담 신청하기</a>
+</div>
+
+</body>
+
+<script>
+// ---- 스크롤 reveal ----
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+},{ threshold:0.18 });
+revealEls.forEach(el=>io.observe(el));
+
+// ---- 탭 전환 ----
+const tabBtns = document.querySelectorAll('.tab-btn');
+const panels = { brow: document.getElementById('panel-brow'), lip: document.getElementById('panel-lip') };
+tabBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabBtns.forEach(b=>b.setAttribute('aria-selected', b===btn ? 'true':'false'));
+    Object.keys(panels).forEach(key=>{ panels[key].hidden = (key !== btn.dataset.tab); });
+  });
+});
+
+// ---- 스티키 하단 바 ----
+const stickyCta = document.getElementById('stickyCta');
+const heroSection = document.getElementById('hero');
+const ctaFinal = document.getElementById('cta-final');
+window.addEventListener('scroll', ()=>{
+  if(window.scrollY > heroSection.offsetHeight * 0.7){ stickyCta.classList.add('visible'); }
+  else{ stickyCta.classList.remove('visible'); }
+});
+new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ stickyCta.classList.toggle('hide', e.isIntersecting); });
+},{ threshold:0.3 }).observe(ctaFinal);
+</script>
+</html>
