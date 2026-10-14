@@ -253,6 +253,187 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
 .sticky-cta .s-secondary{ border:1.4px solid var(--ink); color:var(--ink); }
 
 [hidden]{ display:none !important; }
+  /* ===== Appointment Deposit Design ===== */
+
+.deposit-section {
+  background: var(--blush);
+  padding: 40px 26px;
+}
+
+.deposit-heading {
+  margin-bottom: 26px;
+}
+
+.deposit-heading h2 {
+  font-size: 27px;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.deposit-heading > p:last-child {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.deposit-notice,
+.deposit-option,
+.deposit-steps {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 22px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 24px -16px rgba(43,34,32,.25);
+}
+
+.deposit-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.deposit-check {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--brow-deep);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deposit-notice h3,
+.deposit-option h3 {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 7px;
+}
+
+.deposit-notice p,
+.deposit-description {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.deposit-option-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.deposit-number {
+  color: var(--brow-deep);
+  font-size: 13px;
+}
+
+.deposit-label {
+  color: var(--taupe);
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+
+.deposit-description {
+  margin-bottom: 18px;
+}
+
+.deposit-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin-bottom: 18px;
+}
+
+.deposit-price > span {
+  color: var(--taupe);
+  font-size: 13px;
+}
+
+.deposit-price strong {
+  font-size: 19px;
+}
+
+.deposit-price small {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.deposit-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 30px;
+  background: var(--brow-deep);
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.deposit-button span {
+  font-size: 19px;
+}
+
+.deposit-button:hover {
+  background: var(--ink);
+}
+
+.deposit-steps .deposit-eyebrow {
+  margin-bottom: 8px;
+}
+
+.deposit-steps h3 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.deposit-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.deposit-step > span {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--brow-deep);
+  color: white;
+  font-size: 10px;
+}
+
+.deposit-step p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 2px 0 0;
+}
+
+.deposit-footer {
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--taupe);
+  margin-top: 22px;
+}
+
+/* ===== End Appointment Deposit Design ===== */
+
 </style>
 </head>
 <body>
@@ -428,69 +609,112 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
 <!-- Appointment Deposit Section -->
 <section class="deposit-section" id="appointment-deposit">
 
-  <div class="deposit-header">
+  <div class="deposit-heading">
     <p class="deposit-eyebrow">APPOINTMENT BOOKING</p>
     <h2>Reserve Your Appointment</h2>
     <p>
-      A deposit is required to secure your appointment.
-      Your deposit will be deducted from your total treatment fee.
+      Choose your service and pay your deposit to secure
+      your appointment.
     </p>
   </div>
 
+  <!-- Deposit Information -->
   <div class="deposit-notice">
-    <h3>Important Information</h3>
-    <p>
-      Your deposit is not an additional fee.
-      It will be deducted from your total treatment price
-      on the day of your appointment.
-    </p>
-    <p>
-      Please review the cancellation, rescheduling, and refund
-      policy before making your payment.
-    </p>
+    <div class="deposit-check">✓</div>
+    <div>
+      <h3>Your Deposit Counts Toward Your Treatment</h3>
+      <p>
+        Your deposit is not an additional fee.
+        It will be deducted from your total treatment price
+        on the day of your appointment.
+      </p>
+    </div>
   </div>
 
-  <div class="deposit-card">
-    <div>
-      <h3>Eyelash Lift</h3>
-      <p>Appointment Deposit</p>
-      <strong>₩15,000 KRW</strong>
+  <!-- Eyelash Lift -->
+  <div class="deposit-option">
+    <div class="deposit-option-top">
+      <span class="deposit-number">01</span>
+      <span class="deposit-label">EYELASH SERVICE</span>
+    </div>
+
+    <h3>Eyelash Lift</h3>
+    <p class="deposit-description">
+      Reserve your eyelash lift appointment.
+    </p>
+
+    <div class="deposit-price">
+      <span>Deposit</span>
+      <strong>₩15,000 <small>KRW</small></strong>
     </div>
 
     <a
       href="YOUR_PAYPAL_LASH_LINK"
-      class="deposit-pay-button"
+      class="deposit-button"
       target="_blank"
       rel="noopener noreferrer">
-      Pay Deposit
+      Eyelash Lift Deposit Payment
+      <span>→</span>
     </a>
   </div>
 
-  <div class="deposit-card">
-    <div>
-      <h3>Semi-Permanent Makeup</h3>
-      <p>Appointment Deposit</p>
-      <strong>₩30,000 KRW</strong>
+  <!-- Semi-Permanent Makeup -->
+  <div class="deposit-option">
+    <div class="deposit-option-top">
+      <span class="deposit-number">02</span>
+      <span class="deposit-label">SEMI-PERMANENT SERVICE</span>
+    </div>
+
+    <h3>Semi-Permanent Makeup</h3>
+    <p class="deposit-description">
+      Reserve your semi-permanent makeup appointment.
+    </p>
+
+    <div class="deposit-price">
+      <span>Deposit</span>
+      <strong>₩30,000 <small>KRW</small></strong>
     </div>
 
     <a
       href="YOUR_PAYPAL_BROW_LINK"
-      class="deposit-pay-button"
+      class="deposit-button"
       target="_blank"
       rel="noopener noreferrer">
-      Pay Deposit
+      Semi-Permanent Makeup Deposit Payment
+      <span>→</span>
     </a>
   </div>
 
+  <!-- Booking Steps -->
   <div class="deposit-steps">
+    <p class="deposit-eyebrow">HOW IT WORKS</p>
     <h3>What Happens Next?</h3>
-    <ol>
-      <li>Select your desired service.</li>
-      <li>Pay your deposit securely through PayPal.</li>
-      <li>Contact us to arrange your appointment date and time.</li>
-      <li>Your deposit will be deducted from your final treatment fee.</li>
-    </ol>
+
+    <div class="deposit-step">
+      <span>01</span>
+      <p>Select your desired service.</p>
+    </div>
+
+    <div class="deposit-step">
+      <span>02</span>
+      <p>Complete your deposit payment through PayPal.</p>
+    </div>
+
+    <div class="deposit-step">
+      <span>03</span>
+      <p>Contact us to arrange your appointment date and time.</p>
+    </div>
+
+    <div class="deposit-step">
+      <span>04</span>
+      <p>Your deposit will be deducted from your final treatment fee.</p>
+    </div>
   </div>
+
+  <p class="deposit-footer">
+    Please review our cancellation, rescheduling, and refund policy
+    before making your payment.
+  </p>
 
 </section>
 <!-- FINAL CTA -->
