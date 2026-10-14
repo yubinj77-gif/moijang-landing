@@ -409,36 +409,42 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
       <button class="tab-btn" data-tab="lip" role="tab" aria-selected="false">입술 반영구</button>
     </div>
 
-    <!-- 눈썹 3종 -->
-    <div class="tab-panel" id="panel-brow" role="tabpanel">
-      <article class="menu-card" data-accent="brow">
-        <div class="menu-card-head">
-          <h3>자연눈썹<small>결눈썹</small></h3>
-          <span class="price">170,000원</span>
-        </div>
-        <!-- 💡 여기에 대표사진 태그 추가 (src="이미지경로") -->
-  <img class="menu-card-img" src="images/menu_brow1.jpg" alt="자연 눈썹 대표사진" onerror="this.style.display='none'">
-  <p class="card-desc">한 올 한 올 결을 표현해 본래 눈썹처럼 자연스러움을 살립니다. 전체적으로 모량이 골고루 나셨거나, 첫 반영구이신분께 추천드려요.</p>
-</article>
-      <article class="menu-card" data-accent="brow">
-        <div class="menu-card-head">
-          <h3>콤보 눈썹<small>결표현 + 섀도우</small></h3>
-          <span class="price">200,000원</span>
-        </div>
-        <!-- 💡 여기에 대표사진 태그 추가 (src="이미지경로") -->
-  <img class="menu-card-img" src="images/menu_brow2.jpg" alt="콤보 눈썹 대표사진" onerror="this.style.display='none'">
-  <p class="card-desc">결 표현과 음영을 함께 더해 자연스러우면서 또렷한 인상을 줍니다. 눈썹꼬리쪽의 모량이 부족하신 분께 추천드려요.</p>
-</article>
-      <article class="menu-card" data-accent="brow">
-        <div class="menu-card-head">
-          <h3>섀도우 눈썹<small>수지 기법</small></h3>
-          <span class="price">220,000원</span>
-        </div>
-        <!-- 💡 여기에 대표사진 태그 추가 (src="이미지경로") -->
-  <img class="menu-card-img" src="images/menu_brow3.jpg" alt="섀도우 눈썹 대표사진" onerror="this.style.display='none'">
-  <p class="card-desc">작은 점을 찍어 면을 만들어 음영을 쌓아 메이크업한 듯한 자연스러운 그라데이션을 표현합니다. 진하고 또렷한 눈썹을 원하는 분께 추천드려요.</p>
-</article>
+   ```html
+<!-- 눈썹 3종 -->
+<div class="tab-panel" id="panel-brow" role="tabpanel">
+
+  <!-- 1. 섀도우 눈썹 -->
+  <article class="menu-card" data-accent="brow">
+    <div class="menu-card-head">
+      <h3>섀도우 눈썹<small>수지 기법</small></h3>
+      <span class="price">220,000원</span>
     </div>
+    <img class="menu-card-img" src="images/menu_brow3.jpg" alt="섀도우 눈썹 대표사진" onerror="this.style.display='none'">
+    <p class="card-desc">작은 점을 찍어 면을 만들어 음영을 쌓아 메이크업한 듯한 자연스러운 그라데이션을 표현합니다. 진하고 또렷한 눈썹을 원하는 분께 추천드려요.</p>
+  </article>
+
+  <!-- 2. 콤보 눈썹 -->
+  <article class="menu-card" data-accent="brow">
+    <div class="menu-card-head">
+      <h3>콤보 눈썹<small>결표현 + 섀도우</small></h3>
+      <span class="price">200,000원</span>
+    </div>
+    <img class="menu-card-img" src="images/menu_brow2.jpg" alt="콤보 눈썹 대표사진" onerror="this.style.display='none'">
+    <p class="card-desc">결 표현과 음영을 함께 더해 자연스러우면서 또렷한 인상을 줍니다. 눈썹꼬리쪽의 모량이 부족하신 분께 추천드려요.</p>
+  </article>
+
+  <!-- 3. 자연눈썹 -->
+  <article class="menu-card" data-accent="brow">
+    <div class="menu-card-head">
+      <h3>자연눈썹<small>결눈썹</small></h3>
+      <span class="price">170,000원</span>
+    </div>
+    <img class="menu-card-img" src="images/menu_brow1.jpg" alt="자연 눈썹 대표사진" onerror="this.style.display='none'">
+    <p class="card-desc">한 올 한 올 결을 표현해 본래 눈썹처럼 자연스러움을 살립니다. 전체적으로 모량이 골고루 나셨거나, 첫 반영구이신분께 추천드려요.</p>
+  </article>
+
+</div>
+```
 
     <!-- 입술 3종 -->
     <div class="tab-panel" id="panel-lip" hidden role="tabpanel">
