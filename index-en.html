@@ -791,21 +791,24 @@ const io = new IntersectionObserver((entries)=>{
 revealEls.forEach(el=>io.observe(el));
 
 document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const tab = btn.dataset.tab;
+  btn.addEventListener('click', function () {
+    const tab = this.dataset.tab;
 
-    // 선택된 버튼 표시
     document.querySelectorAll('.tab-btn').forEach(b => {
-      b.setAttribute('aria-selected', String(b === btn));
+      b.setAttribute('aria-selected', String(b === this));
     });
 
-    // 해당 메뉴만 표시
     document.querySelectorAll('.tab-panel').forEach(panel => {
-      panel.hidden = panel.id !== 'panel-' + tab;
+      panel.hidden = true;
     });
+
+    const selectedPanel = document.getElementById('panel-' + tab);
+
+    if (selectedPanel) {
+      selectedPanel.hidden = false;
+    }
   });
 });
-
 const stickyCta = document.getElementById('stickyCta');
 const hero = document.getElementById('hero');
 const ctaFinal = document.getElementById('cta-final');
