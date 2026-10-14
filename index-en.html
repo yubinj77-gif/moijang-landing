@@ -602,7 +602,6 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
   </div>
 </section>
 
-
 <!-- CASES -->
 <section class="cases" id="cases">
   <span class="eyebrow-tag">REAL CASE</span>
@@ -791,13 +790,19 @@ const io = new IntersectionObserver((entries)=>{
 },{ threshold:0.18 });
 revealEls.forEach(el=>io.observe(el));
 
-document.querySelectorAll('.tab-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.tab-btn').forEach(b=>b.setAttribute('aria-selected', 'false'));
-    btn.setAttribute('aria-selected', 'true');
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
     const tab = btn.dataset.tab;
-    document.getElementById('panel-brow').hidden = (tab !== 'brow');
-    document.getElementById('panel-lip').hidden = (tab !== 'lip');
+
+    // 선택된 버튼 표시
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.setAttribute('aria-selected', String(b === btn));
+    });
+
+    // 해당 메뉴만 표시
+    document.querySelectorAll('.tab-panel').forEach(panel => {
+      panel.hidden = panel.id !== 'panel-' + tab;
+    });
   });
 });
 
