@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MOIJANG BROW | Eyebrow & Lip Semi-Permanent Makeup Booking</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Song+Myung&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+
+:root{
+  --ink:#2B2220;
+  --ink-soft:#5B4C44;
+  --paper:#FBF6F1;
+  --paper-deep:#EFE4D9;
+  --card:#FFFCF9;
+  --brow:#A8693A;
+  --brow-deep:#8C5429;
+  --lip:#8B3A42;
+  --lip-deep:#6F2C33;
+  --blush:#F1DCD2;
+  --line:#DCCDBF;
+  --taupe:#8C7E74;
+  --shadow: 0 18px 40px -20px rgba(43,34,32,.35);
+}
+
+body{
+  font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background:var(--paper-deep);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{ font-family:'Song Myung','Pretendard',serif; font-weight:400; letter-spacing:-0.01em; }
+
+img{ max-width:100%; display:block; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+input,textarea{ font-family:inherit; font-size:15px; }
+
+:focus-visible{ outline:2px solid var(--brow-deep); outline-offset:3px; }
+
+.frame{
+  max-width:480px;
+  margin:0 auto;
+  background:var(--paper);
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  min-height:100vh;
+}
+@media (min-width:540px){
+  body{ padding:32px 0; }
+  .frame{ border-radius:28px; }
+}
+
+section{ padding:64px 26px; position:relative; }
+.eyebrow-tag{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size:13px;
+  letter-spacing:.16em;
+  color:var(--brow-deep);
+  display:inline-block;
+  margin-bottom:14px;
+}
+h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
+.section-sub{ font-size:14.5px; color:var(--ink-soft); margin-bottom:8px; }
+
+.motif{ width:100%; display:block; margin:0 auto; }
+.divider{ padding:0 26px; }
+.divider svg path{ fill:none; stroke-width:1.6; stroke-linecap:round; }
+
+.reveal{ opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+
+.hero{
+  min-height:100svh;
+  min-height:100vh;
+  padding:0;
+  display:flex;
+  align-items:flex-end;
+  position:relative;
+  background:
+    radial-gradient(120% 90% at 20% 0%, rgba(168,105,58,.55), transparent 60%),
+    linear-gradient(180deg, var(--ink) 0%, #3A2C26 55%, var(--brow-deep) 100%);
+  overflow:hidden;
+}
+.hero-bg-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.hero.no-image .hero-bg-img{ display:none; }
+.hero-ph-caption{
+  display:none;
+  position:absolute; inset:0;
+  align-items:center; justify-content:center; text-align:center;
+  flex-direction:column; gap:8px; padding:40px;
+}
+.hero.no-image .hero-ph-caption{ display:flex; }
+.hero-ph-caption svg{ width:34px; height:34px; opacity:.7; }
+.hero-ph-caption span{ color:rgba(251,246,241,.75); font-size:12.5px; letter-spacing:.04em; }
+
+.hero-overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(43,34,32,0) 25%, rgba(43,34,32,.55) 70%, rgba(28,21,19,.88) 100%);
+}
+.hero-content{ position:relative; z-index:2; padding:0 28px 56px; color:var(--paper); width:100%; }
+.hero-wordmark{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-size:13px;
+  letter-spacing:.18em; color:rgba(251,246,241,.8); margin-bottom:26px; display:block;
+}
+.hero-title{
+  font-size:30px; line-height:1.42; color:#fff; margin-bottom:14px;
+  text-shadow:0 4px 18px rgba(0,0,0,.25);
+}
+.hero-sub{ font-size:14.5px; color:rgba(251,246,241,.82); max-width:300px; }
+.scroll-cue{
+  margin-top:34px; display:flex; align-items:center; gap:8px;
+  font-size:12px; letter-spacing:.06em; color:rgba(251,246,241,.7);
+}
+.scroll-cue svg{ width:14px; height:14px; animation:bob 1.8s ease-in-out infinite; }
+@keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(4px);} }
+
+.problem{ background:var(--paper); }
+.x-list{ display:flex; flex-direction:column; gap:14px; margin-top:26px; }
+.x-item{
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 18px;
+}
+.x-icon{
+  flex:0 0 30px; width:30px; height:30px; border-radius:50%;
+  background:var(--blush); display:flex; align-items:center; justify-content:center;
+}
+.x-icon svg{ width:13px; height:13px; stroke:var(--lip-deep); stroke-width:2; }
+.x-text strong{ display:block; font-size:15.5px; margin-bottom:3px; }
+.x-text span{ font-size:13px; color:var(--taupe); }
+
+.solution{ background:var(--blush); }
+.check-list{ display:flex; flex-direction:column; gap:14px; margin-top:26px; }
+.check-item{
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--card); border-radius:16px; padding:18px;
+  box-shadow:0 10px 24px -16px rgba(43,34,32,.25);
+}
+.check-icon{
+  flex:0 0 30px; width:30px; height:30px; border-radius:50%;
+  background:var(--brow-deep); display:flex; align-items:center; justify-content:center;
+}
+.check-icon svg{ width:14px; height:14px; stroke:#fff; stroke-width:2.2; }
+.check-text strong{ display:block; font-size:15.5px; margin-bottom:3px; }
+.check-text span{ font-size:13px; color:var(--ink-soft); }
+
+.menu-sec{ background:var(--paper); }
+.tabs{ display:flex; gap:8px; margin:26px 0 22px; background:var(--paper-deep); border-radius:30px; padding:5px; }
+.tab-btn{
+  flex:1; padding:11px 0; border-radius:24px; font-size:14px; font-weight:600;
+  color:var(--ink-soft); transition:background .25s, color .25s;
+}
+.tab-btn[aria-selected="true"]{ background:var(--ink); color:#fff; }
+.tab-panel{ display:flex; flex-direction:column; gap:14px; }
+.tab-panel[hidden]{ display:none; }
+
+.menu-card{
+  background:var(--card); border:1px solid var(--line); border-radius:18px;
+  padding:20px 20px 18px; position:relative; overflow:hidden;
+}
+.menu-card::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+}
+.menu-card[data-accent="brow"]::before{ background:var(--brow); }
+.menu-card[data-accent="lip"]::before{ background:var(--lip); }
+.menu-card-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:8px; }
+.menu-card-head h3{ font-size:17px; line-height:1.35; }
+.menu-card-head h3 small{ display:block; font-family:'Pretendard'; font-size:12px; color:var(--taupe); font-weight:400; margin-top:2px; }
+.price{ flex:0 0 auto; font-size:14px; font-weight:700; white-space:nowrap; padding-top:2px; }
+.menu-card[data-accent="brow"] .price{ color:var(--brow-deep); }
+.menu-card[data-accent="lip"] .price{ color:var(--lip-deep); }
+.card-desc{ font-size:13.5px; color:var(--ink-soft); margin-bottom:16px; }
+
+.cases{ background:var(--paper-deep); }
+.case-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:26px; }
+.case-item{ border-radius:14px; overflow:hidden; background:var(--blush); position:relative; aspect-ratio:4/5; }
+.case-item img{ width:100%; height:100%; object-fit:cover; }
+.case-item.no-image img{ display:none; }
+.case-ph{
+  display:none; position:absolute; inset:0; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:10px; text-align:center;
+}
+.case-item.no-image .case-ph{ display:flex; }
+.case-ph svg{ width:22px; height:22px; opacity:.55; }
+.case-ph span{ font-size:10.5px; color:var(--ink-soft); opacity:.8; }
+.case-cap{
+  position:absolute; left:0; right:0; bottom:0; padding:8px 10px 9px;
+  background:linear-gradient(180deg, transparent, rgba(43,34,32,.72));
+  color:#fff; font-size:11px; line-height:1.3;
+}
+.case-cap b{ display:block; font-size:11.5px; }
+
+.features{ background:var(--ink); color:var(--paper); text-align:center; }
+.slogan{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600;
+  font-size:34px; line-height:1.15; color:#fff; margin-bottom:14px;
+}
+.slogan-underline{ width:150px; margin:0 auto 18px; }
+.slogan-underline path{ stroke:var(--blush); }
+.features-sub{ font-size:13.5px; color:rgba(251,246,241,.65); margin-bottom:34px; }
+
+.feature-list{ display:flex; flex-direction:column; gap:18px; text-align:left; }
+.feature-item{
+  background:rgba(251,246,241,.06); border:1px solid rgba(251,246,241,.14);
+  border-radius:16px; padding:20px;
+}
+.feature-tag{
+  font-family:'Cormorant Garamond', serif; font-style:italic; font-size:12px;
+  letter-spacing:.14em; color:var(--blush); display:block; margin-bottom:8px;
+}
+.feature-item h3{ font-size:16.5px; color:#fff; margin-bottom:6px; }
+.feature-item p{ font-size:13px; color:rgba(251,246,241,.7); }
+
+.cta-final{ background:var(--paper); text-align:center; padding-bottom:48px; }
+.cta-final h2{ font-size:26px; margin-bottom:10px; }
+.cta-final .section-sub{ margin-bottom:30px; }
+.cta-btns{ display:flex; flex-direction:column; gap:12px; }
+.btn-primary, .btn-secondary{
+  width:100%; padding:16px 0; border-radius:30px; font-size:15.5px; font-weight:700; text-align:center; text-decoration:none; display:block;
+}
+.btn-primary{ background:linear-gradient(120deg, var(--brow-deep), var(--lip-deep)); color:#fff; box-shadow:0 14px 28px -14px rgba(111,44,51,.55); }
+.btn-secondary{ background:transparent; border:1.4px solid var(--ink); color:var(--ink); }
+
+.footer{ background:var(--paper); padding:0 26px 100px; text-align:center; }
+.footer-info{ font-size:12.5px; color:var(--taupe); line-height:1.8; border-top:1px solid var(--line); padding-top:24px; }
+.footer-info b{ color:var(--ink-soft); }
+
+.sticky-cta{
+  position:fixed; left:50%; transform:translate(-50%, 110%); bottom:0;
+  width:100%; max-width:480px; z-index:40;
+  background:rgba(251,246,241,.96); backdrop-filter:blur(6px);
+  border-top:1px solid var(--line);
+  padding:12px 20px calc(12px + env(safe-area-inset-bottom));
+  display:flex; gap:10px;
+  transition:transform .35s ease;
+}
+.sticky-cta.visible{ transform:translate(-50%, 0); }
+.sticky-cta.hide{ transform:translate(-50%, 110%); }
+.sticky-cta a{ flex:1; padding:13px 0; border-radius:26px; font-size:14px; font-weight:700; text-align:center; text-decoration:none; display:flex; align-items:center; justify-content:center; }
+.sticky-cta .s-primary{ background:linear-gradient(120deg, var(--brow-deep), var(--lip-deep)); color:#fff; }
+.sticky-cta .s-secondary{ border:1.4px solid var(--ink); color:var(--ink); }
+
+[hidden]{ display:none !important; }
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div style="position: fixed; top: 0; right: 0; z-index: 999; padding: 14px 18px; background: rgba(251,246,241,.96); border-bottom: 1px solid #DCCDBF; backdrop-filter: blur(4px);">
+  <span style="font-size: 12px; color: #8C7E74; letter-spacing: .08em; font-weight: 700;"><a href="index.html" style="color: #8C5429; text-decoration: none; cursor: pointer;">한국어</a> <span style="margin: 0 8px;">|</span> ENGLISH</span>
+</div>
+
+<div class="frame">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img class="hero-bg-img" src="images/profile.jpg" alt="">
+  <div class="hero-ph-caption">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+    <span>images/profile.jpg</span>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-wordmark">MOIJANG BROW</span>
+    <h1 class="hero-title">Which eyebrow design<br>is right for me?</h1>
+    <p class="hero-sub">There are many reviews, but finding the right eyebrow for your face is challenging.</p>
+    <div class="scroll-cue">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4v15M6 14l6 6 6-6"/></svg>
+      SCROLL
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <span class="eyebrow-tag">CHECK</span>
+  <h2 class="section-title">Are you still choosing semi-permanent shops this way?</h2>
+  <div class="x-list">
+    <div class="x-item reveal">
+      <span class="x-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+      <div class="x-text"><strong>Just because people around you did well</strong><span>Your face shape and eyebrow texture may differ from others</span></div>
+    </div>
+    <div class="x-item reveal">
+      <span class="x-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+      <div class="x-text"><strong>Just because the price is cheap</strong><span>Choosing by price alone leaves design to chance</span></div>
+    </div>
+    <div class="x-item reveal">
+      <span class="x-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+      <div class="x-text"><strong>Just because it's close to home</strong><span>What matters most is "a design that fits me"</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+  <span class="eyebrow-tag">INSTEAD</span>
+  <h2 class="section-title">From now on, choose like this</h2>
+  <div class="check-list">
+    <div class="check-item reveal">
+      <span class="check-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></span>
+      <div class="check-text"><strong>A place with cases similar to mine</strong><span>Find cases similar to your face shape in real reviews</span></div>
+    </div>
+    <div class="check-item reveal">
+      <span class="check-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></span>
+      <div class="check-text"><strong>A place with 1:1 design consultation</strong><span>Get customized designs tailored to your eyebrow texture and face ratio</span></div>
+    </div>
+    <div class="check-item reveal">
+      <span class="check-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></span>
+      <div class="check-text"><strong>A place with natural, clean results</strong><span>Results look naturally like they're yours</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-sec" id="menu">
+  <span class="eyebrow-tag">MENU</span>
+  <h2 class="section-title">Choose a design that fits you</h2>
+  <p class="section-sub">Compare pricing and techniques, then book your design</p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab-btn" data-tab="brow" role="tab" aria-selected="true">Eyebrow</button>
+    <button class="tab-btn" data-tab="lip" role="tab" aria-selected="false">Lip</button>
+  </div>
+
+  <!-- EYEBROW MENU -->
+  <div class="tab-panel" id="panel-brow" role="tabpanel">
+    <article class="menu-card" data-accent="brow">
+      <div class="menu-card-head">
+        <h3><span>Natural Eyebrow</span><small>Hair Stroke</small></h3>
+        <span class="price">170,000₩</span>
+      </div>
+      <p class="card-desc">Each stroke is fine and natural-looking. Recommended for lighter eyebrows or sparse areas.</p>
+    </article>
+    <article class="menu-card" data-accent="brow">
+      <div class="menu-card-head">
+        <h3><span>Combo Eyebrow</span><small>Hair Stroke + Shading</small></h3>
+        <span class="price">200,000₩</span>
+      </div>
+      <p class="card-desc">Combines texture and shading for fuller, bolder brows while keeping natural lines.</p>
+    </article>
+    <article class="menu-card" data-accent="brow">
+      <div class="menu-card-head">
+        <h3><span>Gradient Eyebrow</span><small>Shading Technique</small></h3>
+        <span class="price">180,000₩</span>
+      </div>
+      <p class="card-desc">Soft shading creates a makeup-like gradient. Perfect for bold, defined brows.</p>
+    </article>
+  </div>
+
+  <!-- LIP MENU -->
+  <div class="tab-panel" id="panel-lip" hidden role="tabpanel">
+    <article class="menu-card" data-accent="lip">
+      <div class="menu-card-head">
+        <h3><span>Gradient Lip</span><small>Shading</small></h3>
+        <span class="price">200,000₩</span>
+      </div>
+      <p class="card-desc">Darker center, lighter edges for a natural tone-up. Perfect for subtle enhancement.</p>
+    </article>
+    <article class="menu-card" data-accent="lip">
+      <div class="menu-card-head">
+        <h3><span>Full Lip</span><small>Full Coverage</small></h3>
+        <span class="price">220,000₩</span>
+      </div>
+      <p class="card-desc">Even color coverage for bold, defined lips. Great for vibrant color.</p>
+    </article>
+    <article class="menu-card" data-accent="lip">
+      <div class="menu-card-head">
+        <h3><span>MLBB Lip</span><small>My Lips But Better</small></h3>
+        <span class="price">210,000₩</span>
+      </div>
+      <p class="card-desc">Enhanced version of your natural lip color. Perfect for everyday.</p>
+    </article>
+    <article class="menu-card" data-accent="lip">
+      <div class="menu-card-head">
+        <h3><span>Glossy Lip</span><small>Glossy Tone</small></h3>
+        <span class="price">230,000₩</span>
+      </div>
+      <p class="card-desc">Dewy, glossy lips for a fresh, youthful look.</p>
+    </article>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases" id="cases">
+  <span class="eyebrow-tag">REAL CASE</span>
+  <h2 class="section-title">Everyone's eyebrows are different</h2>
+  <p class="section-sub">Different designs needed for different face shapes and eyebrow types</p>
+
+  <div class="case-grid">
+    <div class="case-item"><img src="images/case1.jpg" alt=""><div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case1.jpg</span></div><div class="case-cap"><b>Hair Stroke</b><span>Texture Design</span></div></div>
+    <div class="case-item"><img src="images/case2.jpg" alt=""><div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case2.jpg</span></div><div class="case-cap"><b>Combo</b><span>Shaded Natural</span></div></div>
+    <div class="case-item"><img src="images/case3.jpg" alt=""><div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case3.jpg</span></div><div class="case-cap"><b>Hair Stroke</b><span>Fine Detail</span></div></div>
+    <div class="case-item"><img src="images/case4.jpg" alt=""><div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case4.jpg</span></div><div class="case-cap"><b>Gradient Lip</b><span>Dewy Tone-up</span></div></div>
+    <div class="case-item"><img src="images/case5.jpg" alt=""><div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case5.jpg</span></div><div class="case-cap"><b>Male Eyebrow</b><span>Bold Line</span></div></div>
+    <div class="case-item"><img src="images/case6.jpg" alt=""><div class="case-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#5B4C44" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.2"/></svg><span>case6.jpg</span></div><div class="case-cap"><b>Natural</b><span>Defined Eyes</span></div></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <p class="slogan">FIND YOUR<br>OWN BEAUTY</p>
+  <svg class="slogan-underline motif reveal" viewBox="0 0 150 10" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 6 Q 38 -2, 75 6 T 148 6" fill="none" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+  <p class="features-sub">Three things we prioritize most</p>
+
+  <div class="feature-list">
+    <div class="feature-item reveal">
+      <span class="feature-tag">DESIGN</span>
+      <h3>1:1 Custom Design</h3>
+      <p>We analyze your face shape, eyebrow texture, and skin tone to design your perfect look.</p>
+    </div>
+    <div class="feature-item reveal">
+      <span class="feature-tag">AFTERCARE</span>
+      <h3>Thorough Aftercare</h3>
+      <p>We provide detailed care instructions throughout your recovery period.</p>
+    </div>
+    <div class="feature-item reveal">
+      <span class="feature-tag">CONSULT</span>
+      <h3>Pre-treatment Consultation</h3>
+      <p>We understand your needs and design preferences through thorough consultation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final" id="cta-final">
+  <h2 class="reveal">We help you find<br>your true beauty.</h2>
+  <p class="section-sub reveal">Consult now and find your perfect design</p>
+  <div class="cta-btns reveal">
+    <a href="https://m.booking.naver.com/booking/13/bizes/1039391/items/7772940" target="_blank" class="btn-primary">Book Now</a>
+    <a href="http://pf.kakao.com/_JkUjG" target="_blank" class="btn-secondary">Consult</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-info">
+    <p><b>MOIJANG BROW</b></p>
+    <p>[Address], Seoul, South Korea</p>
+    <p>Hours: 10:00 – 20:00 (Closed Mondays)</p>
+    <p>Phone: +82-0000-0000 · Instagram @moijang_brow</p>
+  </div>
+</footer>
+</div>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://m.booking.naver.com/booking/13/bizes/1039391/items/7772940" target="_blank" class="s-primary">Book</a>
+  <a href="http://pf.kakao.com/_JkUjG" target="_blank" class="s-secondary">Consult</a>
+</div>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+},{ threshold:0.18 });
+revealEls.forEach(el=>io.observe(el));
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.setAttribute('aria-selected', 'false'));
+    btn.setAttribute('aria-selected', 'true');
+    const tab = btn.dataset.tab;
+    document.getElementById('panel-brow').hidden = (tab !== 'brow');
+    document.getElementById('panel-lip').hidden = (tab !== 'lip');
+  });
+});
+
+const stickyCta = document.getElementById('stickyCta');
+const hero = document.getElementById('hero');
+const ctaFinal = document.getElementById('cta-final');
+
+window.addEventListener('scroll', ()=>{
+  if(window.scrollY > hero.offsetHeight * 0.7){ stickyCta.classList.add('visible'); }
+  else{ stickyCta.classList.remove('visible'); }
+});
+
+new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ stickyCta.classList.toggle('hide', e.isIntersecting); });
+},{ threshold:0.3 }).observe(ctaFinal);
+</script>
+</body>
+</html>
