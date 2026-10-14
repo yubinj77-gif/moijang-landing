@@ -504,15 +504,20 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
   </div>
 </section>
 
+
 <!-- MENU -->
 <section class="menu-sec" id="menu">
   <span class="eyebrow-tag">MENU</span>
   <h2 class="section-title">Choose a design that fits you</h2>
   <p class="section-sub">Compare pricing and techniques, then book your design</p>
 
-  <div class="tabs" role="tablist">
-    <button class="tab-btn" data-tab="brow" role="tab" aria-selected="true">Eyebrow</button>
-    <button class="tab-btn" data-tab="lip" role="tab" aria-selected="false">Lip</button>
+  <div class="tabs" role="tablist" aria-label="Service menu">
+    <button type="button" class="tab-btn" data-tab="brow" role="tab"
+      aria-controls="panel-brow" aria-selected="true">Eyebrow</button>
+    <button type="button" class="tab-btn" data-tab="lip" role="tab"
+      aria-controls="panel-lip" aria-selected="false">Lip</button>
+    <button type="button" class="tab-btn" data-tab="lashperm" role="tab"
+      aria-controls="panel-lashperm" aria-selected="false">Lashperm</button>
   </div>
 
   <!-- EYEBROW MENU -->
@@ -524,6 +529,7 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
       </div>
       <p class="card-desc">Soft shading creates a makeup-like gradient. Perfect for bold, defined brows.</p>
     </article>
+
     <article class="menu-card" data-accent="brow">
       <div class="menu-card-head">
         <h3><span>Combo Eyebrow</span><small>Microblading + Shading</small></h3>
@@ -531,6 +537,7 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
       </div>
       <p class="card-desc">Combines texture and shading for fuller, bolder brows while keeping natural lines.</p>
     </article>
+
     <article class="menu-card" data-accent="brow">
       <div class="menu-card-head">
         <h3><span>Natural Eyebrow</span><small>Microblading</small></h3>
@@ -541,7 +548,7 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
   </div>
 
   <!-- LIP MENU -->
-  <div class="tab-panel" id="panel-lip" hidden role="tabpanel">
+  <div class="tab-panel" id="panel-lip" role="tabpanel" hidden>
     <article class="menu-card" data-accent="lip">
       <div class="menu-card-head">
         <h3><span>Gradient Lip</span><small>Shading</small></h3>
@@ -549,6 +556,7 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
       </div>
       <p class="card-desc">Darker center, lighter edges for a natural tone-up. Perfect for subtle enhancement.</p>
     </article>
+
     <article class="menu-card" data-accent="lip">
       <div class="menu-card-head">
         <h3><span>Full Lip</span><small>Full Coverage</small></h3>
@@ -556,34 +564,44 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
       </div>
       <p class="card-desc">Even color coverage for bold, defined lips. Great for vibrant color.</p>
     </article>
+
     <article class="menu-card" data-accent="lip">
       <div class="menu-card-head">
         <h3><span>MLBB Lip</span><small>My Lips But Better</small></h3>
         <span class="price">220,000₩</span>
       </div>
-      
-      <!-- Lashperm MENU -->
-  <div class="tab-panel" id="panel-lashperm" hidden role="tabpanel">
-    <article class="menu-card" data-accent="lashperm">
+      <p class="card-desc">A natural-looking lip color designed to complement your natural tone.</p>
+    </article>
+  </div>
+
+  <!-- LASHPERM MENU -->
+  <div class="tab-panel" id="panel-lashperm" role="tabpanel" hidden>
+    <article class="menu-card" data-accent="brow">
       <div class="menu-card-head">
-        <h3><span>black tinting perm</span><small>Black tinting+ Keratin+ Lashperm</small></h3>
+        <h3><span>Black Tinting Perm</span><small>Black Tinting + Keratin + Lash Lift</small></h3>
         <span class="price">55,000₩</span>
       </div>
-      <p class="card-desc">Darker center, lighter edges for a natural tone-up. Perfect for subtle enhancement.</p>
+      <p class="card-desc">A lash lift with black tinting for a darker, more defined appearance.</p>
     </article>
-    <article class="menu-card" data-accent="lip">
+
+    <article class="menu-card" data-accent="brow">
       <div class="menu-card-head">
-        <h3><span>Keratin perm</span><small>Keratin clinic + Lashperm</small></h3>
+        <h3><span>Keratin Perm</span><small>Keratin Treatment + Lash Lift</small></h3>
         <span class="price">45,000₩</span>
       </div>
-      <p class="card-desc">Even color coverage for bold, defined lips. Great for vibrant color.</p>
+      <p class="card-desc">A lash lift combined with a keratin treatment for an enhanced lash-care routine.</p>
     </article>
-    <article class="menu-card" data-accent="lip">
+
+    <article class="menu-card" data-accent="brow">
       <div class="menu-card-head">
-        <h3><span>Lash perm</span><small>Just make curl on your eyelash/small></h3>
+        <h3><span>Lash Lift</span><small>Basic Lash Curl</small></h3>
         <span class="price">40,000₩</span>
       </div>
-     </section>
+      <p class="card-desc">A simple lash lift to create a beautifully curled appearance.</p>
+    </article>
+  </div>
+</section>
+
 
 <!-- CASES -->
 <section class="cases" id="cases">
