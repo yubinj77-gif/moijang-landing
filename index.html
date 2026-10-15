@@ -398,7 +398,7 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
     </div>
   </section>
 
-  <!-- =================== 4. MENU / 가격·기법 비교 =================== -->
+    <!-- =================== 4. MENU / 가격·기법 비교 =================== -->
   <section class="menu-sec" id="menu">
     <span class="eyebrow-tag reveal">MENU</span>
     <h2 class="section-title reveal">나에게 맞는 디자인을<br>선택해보세요</h2>
@@ -407,43 +407,38 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
     <div class="tabs" role="tablist">
       <button class="tab-btn" data-tab="brow" role="tab" aria-selected="true">눈썹 반영구</button>
       <button class="tab-btn" data-tab="lip" role="tab" aria-selected="false">입술 반영구</button>
-      <button class="tab-btn" data-tab="lip" role="tab" aria-selected="false">속눈썹펌</button>
+      <button class="tab-btn" data-tab="lash" role="tab" aria-selected="false">속눈썹펌</button>
     </div>
 
-<!-- 눈썹 3종 -->
-<div class="tab-panel" id="panel-brow" role="tabpanel">
+    <!-- 눈썹 3종 -->
+    <div class="tab-panel" id="panel-brow" role="tabpanel">
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>섀도우 눈썹<small>수지 기법</small></h3>
+          <span class="price">220,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_brow3.jpg" alt="섀도우 눈썹 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">작은 점을 찍어 면을 만들어 음영을 쌓아 메이크업한 듯한 자연스러운 그라데이션을 표현합니다. 진하고 또렷한 눈썹을 원하는 분께 추천드려요.</p>
+      </article>
 
-  <!-- 1. 섀도우 눈썹 -->
-  <article class="menu-card" data-accent="brow">
-    <div class="menu-card-head">
-      <h3>섀도우 눈썹<small>수지 기법</small></h3>
-      <span class="price">220,000원</span>
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>콤보 눈썹<small>결표현 + 섀도우</small></h3>
+          <span class="price">200,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_brow2.jpg" alt="콤보 눈썹 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">결 표현과 음영을 함께 더해 자연스러우면서 또렷한 인상을 줍니다. 눈썹꼬리쪽의 모량이 부족하신 분께 추천드려요.</p>
+      </article>
+
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>자연눈썹<small>결눈썹</small></h3>
+          <span class="price">170,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_brow1.jpg" alt="자연 눈썹 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">한 올 한 올 결을 표현해 본래 눈썹처럼 자연스러움을 살립니다. 전체적으로 모량이 골고루 나셨거나, 첫 반영구이신분께 추천드려요.</p>
+      </article>
     </div>
-    <img class="menu-card-img" src="images/menu_brow3.jpg" alt="섀도우 눈썹 대표사진" onerror="this.style.display='none'">
-    <p class="card-desc">작은 점을 찍어 면을 만들어 음영을 쌓아 메이크업한 듯한 자연스러운 그라데이션을 표현합니다. 진하고 또렷한 눈썹을 원하는 분께 추천드려요.</p>
-  </article>
-
-  <!-- 2. 콤보 눈썹 -->
-  <article class="menu-card" data-accent="brow">
-    <div class="menu-card-head">
-      <h3>콤보 눈썹<small>결표현 + 섀도우</small></h3>
-      <span class="price">200,000원</span>
-    </div>
-    <img class="menu-card-img" src="images/menu_brow2.jpg" alt="콤보 눈썹 대표사진" onerror="this.style.display='none'">
-    <p class="card-desc">결 표현과 음영을 함께 더해 자연스러우면서 또렷한 인상을 줍니다. 눈썹꼬리쪽의 모량이 부족하신 분께 추천드려요.</p>
-  </article>
-
-  <!-- 3. 자연눈썹 -->
-  <article class="menu-card" data-accent="brow">
-    <div class="menu-card-head">
-      <h3>자연눈썹<small>결눈썹</small></h3>
-      <span class="price">170,000원</span>
-    </div>
-    <img class="menu-card-img" src="images/menu_brow1.jpg" alt="자연 눈썹 대표사진" onerror="this.style.display='none'">
-    <p class="card-desc">한 올 한 올 결을 표현해 본래 눈썹처럼 자연스러움을 살립니다. 전체적으로 모량이 골고루 나셨거나, 첫 반영구이신분께 추천드려요.</p>
-  </article>
-
-</div>
 
     <!-- 입술 3종 -->
     <div class="tab-panel" id="panel-lip" hidden role="tabpanel">
@@ -452,63 +447,87 @@ h2.section-title{ font-size:25px; line-height:1.4; margin-bottom:10px; }
           <h3>그라데이션 입술<small>음영 기법</small></h3>
           <span class="price">220,000원</span>
         </div>
-        <!-- 💡 여기에 대표사진 태그 추가 (src="이미지경로") -->
-  <img class="menu-card-img" src="images/menu_lip1.jpg" alt="그라데이션 입술 대표사진" onerror="this.style.display='none'">
-  <p class="card-desc">입술 중앙은 진하게, 바깥은 연하게 음영을 주어 자연스러운 색감을 표현합니다. 은은한 톤업 효과를 원하는 분께 추천드려요.</p>
-</article>
+        <img class="menu-card-img" src="images/menu_lip1.jpg" alt="그라데이션 입술 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">입술 중앙은 진하게, 바깥은 연하게 음영을 주어 자연스러운 색감을 표현합니다. 은은한 톤업 효과를 원하는 분께 추천드려요.</p>
+      </article>
+
       <article class="menu-card" data-accent="lip">
         <div class="menu-card-head">
           <h3>풀착색 입술<small>전체 착색 기법</small></h3>
           <span class="price">220,000원</span>
         </div>
-        <!-- 💡 여기에 대표사진 태그 추가 (src="이미지경로") -->
-  <img class="menu-card-img" src="images/menu_lip2.jpg" alt="풀착색 입술 대표사진" onerror="this.style.display='none'">
-  <p class="card-desc">입술 전체에 고르게 컬러를 입혀 선명하고 또렷한 입술 색을 표현합니다. 화사하고 분명한 컬러를 원하는 분께 추천드려요.</p>
-</article>
+        <img class="menu-card-img" src="images/menu_lip2.jpg" alt="풀착색 입술 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">입술 전체에 고르게 컬러를 입혀 선명하고 또렷한 입술 색을 표현합니다. 화사하고 분명한 컬러를 원하는 분께 추천드려요.</p>
+      </article>
+
       <article class="menu-card" data-accent="lip">
         <div class="menu-card-head">
           <h3>오버립 입술<small>립라인 교정</small></h3>
           <span class="price">220,000원</span>
         </div>
-        <!-- 💡 여기에 대표사진 태그 추가 (src="이미지경로") -->
-  <img class="menu-card-img" src="images/menu_lip3.jpg" alt="오버립 입술 대표사진" onerror="this.style.display='none'">
-  <p class="card-desc">립라인이 어둡거나, 흐릿한 분들께 본래 컬러처럼 자연스럽게 오버립하길 원하는 분께 추천드려요.</p>
-</article>
+        <img class="menu-card-img" src="images/menu_lip3.jpg" alt="오버립 입술 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">립라인이 어둡거나, 흐릿한 분들께 본래 컬러처럼 자연스럽게 오버립하길 원하는 분께 추천드려요.</p>
+      </article>
     </div>
-     <!-- 속눈썹펌 3종 -->
-<div class="tab-panel" id="panel-brow" role="tabpanel">
 
-  <!-- 1. C컬의 둥근컬 -->
-  <article class="menu-card" data-accent="brow">
-    <div class="menu-card-head">
-      <h3>섀도우 눈썹<small>수지 기법</small></h3>
-      <span class="price">220,000원</span>
+        <!-- 속눈썹펌 -->
+    <div class="tab-panel" id="panel-lash" hidden role="tabpanel">
+
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>물광수분블랙펌<small>시술시간 1시간</small></h3>
+          <span class="price">55,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lash1.jpg" alt="물광수분블랙펌 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">기존 속눈썹보다 마스카라를 한 듯 진한 속눈썹이 되고 싶지만 손상도가 걱정되신다면 추천드립니다. (염색X)<br>기존 블랙틴팅에 수분케어까지 추가해드려, 진하지만 건조해지던 속눈썹을 촉촉하고 진하게 만들어드려요.<br>클리닉케어와 틴팅을 동시에 받아보실 수 있습니다.<br>(수분속눈썹펌 + 단백질클리닉 + 블랙틴팅 + 속눈썹탄력케어)</p>
+      </article>
+
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>물광수분케라틴펌<small>시술시간 1시간 · 인기메뉴</small></h3>
+          <span class="price">45,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lash2.jpg" alt="물광수분케라틴펌 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">잦은 속눈썹펌을 받으시는 분들, 6주 이내에 속눈썹펌 이력이 있는 분들에게 추천드립니다. 기본 속펌에 영양케어를 추가로 해드려, 더욱 촉촉한 속눈썹이 되실 수 있어요.<br>부시시하고 부분적으로 컬이 풀려 계신 상태라면 더더욱 추천드려요.<br>(수분속눈썹펌 + 단백질클리닉 + 응급재생클리닉)</p>
+      </article>
+
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>수분뷰러펌<small>시술시간 1시간</small></h3>
+          <span class="price">40,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lash3.jpg" alt="수분뷰러펌 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">처음 속눈썹펌을 받으시는 분들에게 추천드립니다. 기본 속눈썹펌 진행 시에도 무아장만의 본드케어를 마무리로 해드려 시술 후에도 부시시함 없이 탱글하게 유지해드려요.<br>6주 이내에 속눈썹펌을 받으신 분이라면 물광수분케라틴펌을 추천드려요.<br>(기본속눈썹펌 + 수분본드케어)</p>
+      </article>
+
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>브로우리프트<small>시술시간 1시간</small></h3>
+          <span class="price">40,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lash4.jpg" alt="브로우리프트 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">결이 살아있는 연예인 눈썹을 갖고 싶으시다면 추천드립니다. 속눈썹펌을 하듯 눈썹에도 펌을 해드려, 누워있는 모발 혹은 눈썹 모가 가지런하게 나지 않으시는 분들이 받으시면 가지런하고 정돈된, 결이 살아있는 눈썹이 되실 수 있어요.</p>
+      </article>
+
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>속펌+브로우리프트<small>시술시간 1시간</small></h3>
+          <span class="price">70,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lash5.jpg" alt="속펌+브로우리프트 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">가지런하고 뷰러한 듯 올라간 속눈썹과, 결이 살아있는 눈썹을 동시에 만들고 싶으신 분들에게 추천드립니다.</p>
+      </article>
+
+      <article class="menu-card" data-accent="brow">
+        <div class="menu-card-head">
+          <h3>속눈썹펌+영양제 본품구매<small>시술시간 1시간</small></h3>
+          <span class="price">70,000~75,000원</span>
+        </div>
+        <img class="menu-card-img" src="images/menu_lash6.jpg" alt="속눈썹펌+영양제 본품구매 대표사진" onerror="this.style.display='none'">
+        <p class="card-desc">기본 속눈썹펌과 영양제 본품구매를 원하시는 분들에게 추천드립니다. 잦은 속눈썹펌, 주기적인 속눈썹펌을 받으신다면 컬링 유지 및 속눈썹 손상도 관리를 위해 영양제 케어는 필수입니다. 속눈썹이 잘리거나 부스스해지는 등의 이유로 속눈썹펌 받기가 꺼려지신다면 추천드려요. 집에서도 관리해보세요.</p>
+      </article>
+
     </div>
-    <img class="menu-card-img" src="images/menu_brow3.jpg" alt="섀도우 눈썹 대표사진" onerror="this.style.display='none'">
-    <p class="card-desc">작은 점을 찍어 면을 만들어 음영을 쌓아 메이크업한 듯한 자연스러운 그라데이션을 표현합니다. 진하고 또렷한 눈썹을 원하는 분께 추천드려요.</p>
-  </article>
-
-  <!-- 2. 둥근 바짝컬 -->
-  <article class="menu-card" data-accent="brow">
-    <div class="menu-card-head">
-      <h3>콤보 눈썹<small>결표현 + 섀도우</small></h3>
-      <span class="price">200,000원</span>
-    </div>
-    <img class="menu-card-img" src="images/menu_brow2.jpg" alt="콤보 눈썹 대표사진" onerror="this.style.display='none'">
-    <p class="card-desc">결 표현과 음영을 함께 더해 자연스러우면서 또렷한 인상을 줍니다. 눈썹꼬리쪽의 모량이 부족하신 분께 추천드려요.</p>
-  </article>
-
-  <!-- 3. 뿌리부터 바짝 L컬 -->
-  <article class="menu-card" data-accent="brow">
-    <div class="menu-card-head">
-      <h3>자연눈썹<small>결눈썹</small></h3>
-      <span class="price">170,000원</span>
-    </div>
-    <img class="menu-card-img" src="images/menu_brow1.jpg" alt="자연 눈썹 대표사진" onerror="this.style.display='none'">
-    <p class="card-desc">한 올 한 올 결을 표현해 본래 눈썹처럼 자연스러움을 살립니다. 전체적으로 모량이 골고루 나셨거나, 첫 반영구이신분께 추천드려요.</p>
-  </article>
-
-</div>
   </section>
 
   <!-- =================== 5. CASES =================== -->
@@ -664,13 +683,14 @@ const io = new IntersectionObserver((entries)=>{
 },{ threshold:0.18 });
 revealEls.forEach(el=>io.observe(el));
 
-// ---- 탭 전환 ----
+// ---- 탭 전환 (눈썹 / 입술 / 속눈썹펌) ----
 const tabBtns = document.querySelectorAll('.tab-btn');
-const panels = { brow: document.getElementById('panel-brow'), lip: document.getElementById('panel-lip') };
-tabBtns.forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    tabBtns.forEach(b=>b.setAttribute('aria-selected', b===btn ? 'true':'false'));
-    Object.keys(panels).forEach(key=>{ panels[key].hidden = (key !== btn.dataset.tab); });
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.setAttribute('aria-selected', b === btn ? 'true' : 'false'));
+    document.querySelectorAll('.tab-panel').forEach(p => {
+      p.hidden = (p.id !== 'panel-' + btn.dataset.tab);
+    });
   });
 });
 
